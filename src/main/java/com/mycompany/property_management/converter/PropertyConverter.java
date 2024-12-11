@@ -12,11 +12,9 @@ public class PropertyConverter {
 
       pe.setTitle(propertyDTO.getTitle());
       pe.setDescription(propertyDTO.getDescription());
-      pe.setOwnerName(propertyDTO.getOwnerName());
-      pe.setOwnerEmail(propertyDTO.getOwnerEmail());
       pe.setPrice(propertyDTO.getPrice());
       pe.setAddress(propertyDTO.getAddress());
-      return(pe);
+      return (pe);
    }
 
    public PropertyDTO convertEntityToDTO(PropertyEntity propertyEntity) {
@@ -25,12 +23,10 @@ public class PropertyConverter {
       propertyDTO.setId(propertyEntity.getId());
       propertyDTO.setTitle(propertyEntity.getTitle());
       propertyDTO.setAddress(propertyEntity.getAddress());
-      propertyDTO.setOwnerEmail(propertyEntity.getOwnerEmail());
-      propertyDTO.setOwnerName(propertyEntity.getOwnerEmail());
       propertyDTO.setPrice(propertyEntity.getPrice());
       propertyDTO.setDescription(propertyEntity.getDescription());
 
-      return(propertyDTO);
+      return (propertyDTO);
    }
 
 }

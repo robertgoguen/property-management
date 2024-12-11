@@ -37,7 +37,7 @@ public class PropertyServiceImpl implements PropertyService {
       List<PropertyEntity> listOfProps = (List<PropertyEntity>) propertyRepository.findAll();
 
       List<PropertyDTO> propList = new ArrayList<>();
-      for (PropertyEntity pe: listOfProps) {
+      for (PropertyEntity pe : listOfProps) {
          PropertyDTO dto = propertyConverter.convertEntityToDTO(pe);
          propList.add(dto);
       }
@@ -50,13 +50,11 @@ public class PropertyServiceImpl implements PropertyService {
       Optional<PropertyEntity> optEn = propertyRepository.findById(propertyId);
 
       PropertyDTO dto = null;
-      if (optEn.isPresent()){
+      if (optEn.isPresent()) {
          PropertyEntity pe = optEn.get();
 
          pe.setTitle(propertyDTO.getTitle());
          pe.setDescription(propertyDTO.getDescription());
-         pe.setOwnerName(propertyDTO.getOwnerName());
-         pe.setOwnerEmail(propertyDTO.getOwnerEmail());
          pe.setPrice(propertyDTO.getPrice());
          pe.setAddress(propertyDTO.getAddress());
          dto = propertyConverter.convertEntityToDTO(pe);
@@ -71,7 +69,7 @@ public class PropertyServiceImpl implements PropertyService {
       Optional<PropertyEntity> optEn = propertyRepository.findById(propertyId);
 
       PropertyDTO dto = null;
-      if (optEn.isPresent()){
+      if (optEn.isPresent()) {
          PropertyEntity pe = optEn.get();
          pe.setDescription(propertyDTO.getDescription());
          dto = propertyConverter.convertEntityToDTO(pe);
@@ -85,13 +83,14 @@ public class PropertyServiceImpl implements PropertyService {
       Optional<PropertyEntity> optEn = propertyRepository.findById(propertyId);
 
       PropertyDTO dto = null;
-      if (optEn.isPresent()){
+      if (optEn.isPresent()) {
          PropertyEntity pe = optEn.get();
          pe.setPrice(propertyDTO.getPrice());
          dto = propertyConverter.convertEntityToDTO(pe);
          propertyRepository.save(pe);
       }
-      return dto;   }
+      return dto;
+   }
 
    @Override
    public void deleteProperty(Long propertyId) {
