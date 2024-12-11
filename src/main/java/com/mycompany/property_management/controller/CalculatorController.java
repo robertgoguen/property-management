@@ -9,22 +9,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/calculator")
 public class CalculatorController {
 
-   @GetMapping("/add")
-   public Double add(@RequestParam("num1") Double num1, @RequestParam("num2") Double num2) {
-      return num1+num2;
-   }
-
-   @GetMapping("/sub/{num1}/{num2}")//map the values of the url to java variable by Path variable method
-   public Double subtract(@PathVariable("num1")Double num1, @PathVariable("num2") Double num2) {
-      Double result = null;
-      if (num1 > num2) {
-         result = num1 - num2;
-      } else {
-         result = num2 - num1;
-      }
-      return result;
-   }
-
    @PostMapping("/mul")
    static ResponseEntity<Double> multiple(@RequestBody CalculatorDTO calculatorDTO) {
       Double result1 = null;
@@ -36,5 +20,21 @@ public class CalculatorController {
 
       ResponseEntity<Double> responseEntity = new ResponseEntity<Double>(result, HttpStatus.CREATED);
       return responseEntity;
+   }
+
+   @GetMapping("/add")
+   public Double add(@RequestParam("num1") Double num1, @RequestParam("num2") Double num2) {
+      return num1 + num2;
+   }
+
+   @GetMapping("/sub/{num1}/{num2}")//map the values of the url to java variable by Path variable method
+   public Double subtract(@PathVariable("num1") Double num1, @PathVariable("num2") Double num2) {
+      Double result = null;
+      if (num1 > num2) {
+         result = num1 - num2;
+      } else {
+         result = num2 - num1;
+      }
+      return result;
    }
 }
