@@ -11,15 +11,11 @@ public class CalculatorController {
 
    @PostMapping("/mul")
    static ResponseEntity<Double> multiple(@RequestBody CalculatorDTO calculatorDTO) {
-      Double result1 = null;
-      Double result2 = null;
-      Double result = null;
-      result1 = calculatorDTO.getNum1() * calculatorDTO.getNum2();
-      result2 = calculatorDTO.getNum3() * calculatorDTO.getNum4();
-      result = result1 * result2;
+      Double result1 = calculatorDTO.getNum1() * calculatorDTO.getNum2();
+      Double result2 = calculatorDTO.getNum3() * calculatorDTO.getNum4();
+      Double result = result1 * result2;
 
-      ResponseEntity<Double> responseEntity = new ResponseEntity<Double>(result, HttpStatus.CREATED);
-      return responseEntity;
+      return new ResponseEntity<Double>(result, HttpStatus.CREATED);
    }
 
    @GetMapping("/add")
