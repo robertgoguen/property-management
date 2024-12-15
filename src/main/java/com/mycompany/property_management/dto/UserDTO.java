@@ -20,7 +20,6 @@ public class UserDTO {
    private String password;
    private String phone;
 
-
    public long getId() {
       return id;
    }

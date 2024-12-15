@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -34,7 +33,6 @@ public class UserServiceImpl implements UserService {
          errorModelList.add(errorModel);
          throw new BusinessException(errorModelList);
       }
-
       UserEntity userEntity = userConverter.convertDTOToEntity(userDTO);
       userEntity = userRepository.save(userEntity);
       userDTO = userConverter.convertEntityToDTo(userEntity);
